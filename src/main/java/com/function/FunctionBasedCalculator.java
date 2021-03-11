@@ -1,5 +1,7 @@
 package com.function;
 
+import com.operations.OperationType;
+
 import java.util.Map;
 import java.util.function.BinaryOperator;
 
