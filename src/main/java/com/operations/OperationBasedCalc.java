@@ -1,6 +1,6 @@
 package com.operations;
 
-public enum OperationType {
+public enum OperationBasedCalc {
     ADDITION,
     SUBTRACTION,
     DIVISION,

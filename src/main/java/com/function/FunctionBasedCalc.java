@@ -1,15 +1,15 @@
 package com.function;
 
-import com.operations.OperationType;
+import com.operations.OperationBasedCalc;
 
 import java.util.Map;
 import java.util.function.BinaryOperator;
 
-public class FunctionBasedCalculator {
-    Map<OperationType, BinaryOperator<Integer>> map = Map.of(OperationType.ADDITION, (x, y) -> x + y,
-            OperationType.SUBTRACTION, (x, y) -> x - y,
-            OperationType.MULTIPLICATION, (x, y) -> x * y,
-            OperationType.DIVISION, (x, y) -> x / y);
+public class FunctionBasedCalc {
+    Map<OperationBasedCalc, BinaryOperator<Integer>> map = Map.of(OperationBasedCalc.ADDITION, (x, y) -> x + y,
+            OperationBasedCalc.SUBTRACTION, (x, y) -> x - y,
+            OperationBasedCalc.MULTIPLICATION, (x, y) -> x * y,
+            OperationBasedCalc.DIVISION, (x, y) -> x / y);
 
     private int sum(int a, int b) {
         return a + b;

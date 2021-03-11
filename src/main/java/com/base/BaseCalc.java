@@ -1,6 +1,6 @@
 package com.base;
 
-public class BaseCalculator {
+public class BaseCalc {
     private int add(int a, int b) {
         return a + b;
     }
@@ -18,6 +18,6 @@ public class BaseCalculator {
     }
 
     public static void main(String[] args) {
-        System.out.println(new BaseCalculator().divide(5, 2));
+        System.out.println(new BaseCalc().divide(5, 2));
     }
 }
