@@ -2,23 +2,25 @@ package com.operations;
 
 public enum OperationBasedCalc {
     SUM {
-        private int sum(int x, int y) {
+        public int action(int x, int y) {
             return x + y;
         }
     },
     SUBTRACTION {
-        private int subtract(int x, int y) {
+        public int action(int x, int y) {
             return x - y;
         }
     },
     DIVISION {
-        private double divide(int x, int y) {
-            return (double) x / y;
+        public int action(int x, int y) {
+            return x / y;
         }
     },
     MULTIPLICATION {
-        private int multiply(int x, int y) {
+        public int action(int x, int y) {
             return x * y;
         }
-    }
+    };
+
+    public abstract int action(int x, int y);
 }

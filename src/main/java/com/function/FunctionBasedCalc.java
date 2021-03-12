@@ -26,4 +26,8 @@ public class FunctionBasedCalc {
     private double divide(int a, int b) {
         return (double) a / b;
     }
+
+    public Map<OperationBasedCalc, BinaryOperator<Integer>> getMap() {
+        return map;
+    }
 }
