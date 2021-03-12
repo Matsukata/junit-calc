@@ -11,7 +11,8 @@ public class Demo {
 
     public static void main(String[] args) {
         System.out.println(baseCalc.divide(5,2));
-        System.out.println(operationBasedCalc.action(5,2));
         System.out.println(functionBasedCalc.getMap().get(OperationBasedCalc.SUM).apply(6,2));
+        System.out.println(operationBasedCalc.action(5,2));
+
     }
 }
