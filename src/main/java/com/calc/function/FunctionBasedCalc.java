@@ -1,33 +1,31 @@
 package com.calc.function;
 
-import com.calc.operations.OperationBasedCalc;
+import com.calc.operations.Operations;
 
 import java.util.Map;
 import java.util.function.BinaryOperator;
 
+import static com.calc.operations.Operations.*;
+
 public class FunctionBasedCalc {
-    Map<OperationBasedCalc, BinaryOperator<Integer>> map = Map.of(OperationBasedCalc.SUM, Integer::sum,
-            OperationBasedCalc.SUBTRACTION, (x, y) -> x - y,
-            OperationBasedCalc.MULTIPLICATION, (x, y) -> x * y,
-            OperationBasedCalc.DIVISION, (x, y) -> x / y);
+    Map<Operations, BinaryOperator<Integer>> map = Map.of(PLUS, Integer::sum,
+            MINUS, (x, y) -> x - y,
+            MULTIPLY, (x, y) -> x * y,
+            DIVIDE, (x, y) -> x / y);
 
-    private int sum(int a, int b) {
-        return a + b;
+    public int sum(int a, int b) {
+        return map.get(PLUS).apply(a, b);
     }
 
-    private int subtract(int a, int b) {
-        return a - b;
+    public int subtract(int a, int b) {
+        return map.get(MINUS).apply(a, b);
     }
 
-    private int multiply(int a, int b) {
-        return a * b;
+    public int multiply(int a, int b) {
+        return map.get(MULTIPLY).apply(a, b);
     }
 
-    private double divide(int a, int b) {
-        return (double) a / b;
-    }
-
-    public Map<OperationBasedCalc, BinaryOperator<Integer>> getMap() {
-        return map;
+    public double divide(int a, int b) {
+        return map.get(DIVIDE).apply(a, b);
     }
 }
