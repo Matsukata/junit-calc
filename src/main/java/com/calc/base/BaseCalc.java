@@ -1,4 +1,4 @@
-package com.base;
+package com.calc.base;
 
 public class BaseCalc {
     public int sum(int a, int b) {
@@ -14,7 +14,9 @@ public class BaseCalc {
     }
 
     public double divide(int a, int b) {
-        int c = a / b;
-        return (double) a/b;
+        if (b == 0) {
+            throw new ArithmeticException();
+        }
+        return (double) a / b;
     }
 }

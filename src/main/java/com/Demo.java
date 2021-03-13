@@ -1,8 +1,8 @@
 package com;
 
-import com.base.BaseCalc;
-import com.function.FunctionBasedCalc;
-import com.operations.OperationBasedCalc;
+import com.calc.base.BaseCalc;
+import com.calc.function.FunctionBasedCalc;
+import com.calc.operations.OperationBasedCalc;
 
 public class Demo {
     private static BaseCalc baseCalc = new BaseCalc();

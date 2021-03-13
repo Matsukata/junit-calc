@@ -1,6 +1,6 @@
-package com.function;
+package com.calc.function;
 
-import com.operations.OperationBasedCalc;
+import com.calc.operations.OperationBasedCalc;
 
 import java.util.Map;
 import java.util.function.BinaryOperator;

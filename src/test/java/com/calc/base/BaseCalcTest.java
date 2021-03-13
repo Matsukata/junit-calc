@@ -1,5 +1,6 @@
-package com.base;
+package com.calc.base;
 
+import com.calc.base.BaseCalc;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

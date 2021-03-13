@@ -1,4 +1,4 @@
-package com.operations;
+package com.calc.operations;
 
 public enum OperationBasedCalc {
     SUM {
