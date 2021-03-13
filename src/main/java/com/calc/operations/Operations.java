@@ -16,6 +16,10 @@ public enum Operations implements IntBinaryOperator {
         this.binaryOperator = binaryOperator;
     }
 
+    public IntBinaryOperator getBinaryOperator() {
+        return binaryOperator;
+    }
+
     @Override
     public int applyAsInt(final int left, final int right) {
         return binaryOperator.applyAsInt(left, right);

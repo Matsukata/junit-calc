@@ -13,7 +13,6 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Enclosed.class)
 public class BaseCalcParameterizedTest {
-
     private static BaseCalc baseCalc = new BaseCalc();
 
     @RunWith(Parameterized.class)
@@ -62,6 +61,7 @@ public class BaseCalcParameterizedTest {
 
     @RunWith(Parameterized.class)
     public static class DoubleParameters {
+
         @Parameterized.Parameters
         public static Collection<Object[]> data() {
             return Arrays.asList(new Object[][]{

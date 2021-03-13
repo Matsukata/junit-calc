@@ -12,6 +12,6 @@ public class Demo {
     public static void main(String[] args) {
         System.out.println(baseCalc.divide(5, 2));
         System.out.println(functionBasedCalc.sum(2, 3));
-        System.out.println(enumCalc.sum(2, 3, "+"));
+        System.out.println(enumCalc.sum(2, 3));
     }
 }
