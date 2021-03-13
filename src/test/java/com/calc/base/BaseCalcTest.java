@@ -1,8 +1,5 @@
 package com.calc.base;
 
-import com.calc.base.BaseCalc;
-import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class BaseCalcTest {
@@ -34,10 +31,5 @@ public class BaseCalcTest {
         double actual = baseCalc.divide(5, 2);
         double expected = 2.5;
         assertEquals(expected, actual, 0.00000000000000001);
-    }
-
-    @Test(expected = ArithmeticException.class)
-    public void divideByZero() {
-        baseCalc.divide(5, 0);
     }
 }
