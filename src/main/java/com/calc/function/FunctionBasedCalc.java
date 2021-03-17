@@ -1,14 +1,17 @@
 package com.calc.function;
 
-import com.calc.operations.Operations;
+import com.calc.enums.MathOperation;
 
 import java.util.Map;
 import java.util.function.BinaryOperator;
 
-import static com.calc.operations.Operations.*;
+import static com.calc.enums.MathOperation.DIVIDE;
+import static com.calc.enums.MathOperation.MINUS;
+import static com.calc.enums.MathOperation.MULTIPLY;
+import static com.calc.enums.MathOperation.PLUS;
 
 public class FunctionBasedCalc {
-    Map<Operations, BinaryOperator<Integer>> map = Map.of(PLUS, Integer::sum,
+    Map<MathOperation, BinaryOperator<Integer>> map = Map.of(PLUS, Integer::sum,
             MINUS, (x, y) -> x - y,
             MULTIPLY, (x, y) -> x * y,
             DIVIDE, (x, y) -> x / y);

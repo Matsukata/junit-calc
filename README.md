@@ -1,1 +1,1 @@
-Simple calculator with JUnit tests
+A simple calculator with JUnit tests

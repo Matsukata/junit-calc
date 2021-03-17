@@ -1,4 +1,4 @@
-package com.calc.operations;
+package com.calc.enums;
 
 public class EnumCalc {
     private static final String ADD_OPERATION = "PLUS";
@@ -20,12 +20,12 @@ public class EnumCalc {
 
     public double divide(int a, int b) {
         if (b == 0) {
-            throw new ArithmeticException();
+            throw new ArithmeticException("Divide by Zero");
         }
         return binaryOperation(DIVIDE_OPERATION, a, b);
     }
 
-    public int binaryOperation(String operation, int a, int b) {
-        return Operations.valueOf(operation).getBinaryOperator().applyAsInt(a, b);
+    private int binaryOperation(String operation, int a, int b) {
+        return MathOperation.valueOf(operation).getBinaryOperator().applyAsInt(a, b);
     }
 }

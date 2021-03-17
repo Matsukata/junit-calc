@@ -15,7 +15,7 @@ public class BaseCalc {
 
     public double divide(int a, int b) {
         if (b == 0) {
-            throw new ArithmeticException();
+            throw new ArithmeticException("Divide by Zero");
         }
         return (double) a / b;
     }

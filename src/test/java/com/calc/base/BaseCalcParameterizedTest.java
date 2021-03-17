@@ -1,87 +1,73 @@
 package com.calc.base;
 
+import com.calc.enums.MathOperation;
 import org.junit.Assume;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
 
+import static com.calc.enums.MathOperation.DIVIDE;
+import static com.calc.enums.MathOperation.MINUS;
+import static com.calc.enums.MathOperation.MULTIPLY;
+import static com.calc.enums.MathOperation.PLUS;
 import static org.junit.Assert.assertEquals;
 
-@RunWith(Enclosed.class)
+@RunWith(Parameterized.class)
 public class BaseCalcParameterizedTest {
-    private static BaseCalc baseCalc = new BaseCalc();
+    private static BaseCalc baseCalc;
 
-    @RunWith(Parameterized.class)
-    public static class IntParameters {
-        enum Type {SUBTRACT, ADD, MULTIPLICATION}
-
-        @Parameterized.Parameters
-        public static Collection<Object[]> data() {
-            return Arrays.asList(new Object[][]{
-                    {Type.ADD, 2, 3, 5},
-                    {Type.SUBTRACT, 5, 1, 4},
-                    {Type.MULTIPLICATION, 5, 5, 25},
-            });
-        }
-
-        private Type type;
-        private final int first;
-        private final int second;
-        private final int expected;
-
-        public IntParameters(Type type, int first, int second, int expected) {
-            this.type = type;
-            this.first = first;
-            this.second = second;
-            this.expected = expected;
-        }
-
-        @Test
-        public void testCorrectSum() {
-            Assume.assumeTrue(type == Type.ADD);
-            assertEquals(expected, baseCalc.sum(first, second));
-        }
-
-        @Test
-        public void testSubtraction() {
-            Assume.assumeTrue(type == Type.SUBTRACT);
-            assertEquals(expected, baseCalc.subtract(first, second));
-        }
-
-        @Test
-        public void testMultiplication() {
-            Assume.assumeTrue(type == Type.MULTIPLICATION);
-            assertEquals(expected, baseCalc.multiply(first, second));
-        }
+    @Parameterized.Parameters
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                {PLUS, 2, 3, 5},
+                {MINUS, 5, 1, 4},
+                {MULTIPLY, 5, 5, 25},
+                {DIVIDE, 3, 2, 1.5}
+        });
     }
 
-    @RunWith(Parameterized.class)
-    public static class DoubleParameters {
+    @Parameterized.Parameter
+    public MathOperation type;
 
-        @Parameterized.Parameters
-        public static Collection<Object[]> data() {
-            return Arrays.asList(new Object[][]{
-                    {3, 2, 1.5}
-            });
-        }
+    @Parameterized.Parameter(1)
+    public int first;
 
-        private final int first;
-        private final int second;
-        private final double expected;
+    @Parameterized.Parameter(2)
+    public int second;
 
-        public DoubleParameters(int first, int second, double expected) {
-            this.first = first;
-            this.second = second;
-            this.expected = expected;
-        }
+    @Parameterized.Parameter(3)
+    public double expected;
 
-        @Test
-        public void testDivision() {
-            assertEquals(expected, baseCalc.divide(first, second), 0.00000001);
-        }
+    @BeforeClass
+    public static void init() {
+        baseCalc = new BaseCalc();
+    }
+
+    @Test
+    public void testCorrectSum() {
+        Assume.assumeTrue(type == PLUS);
+        assertEquals((int) expected, baseCalc.sum(first, second));
+    }
+
+    @Test
+    public void testSubtraction() {
+        Assume.assumeTrue(type == MINUS);
+        assertEquals((int) expected, baseCalc.subtract(first, second));
+    }
+
+    @Test
+    public void testMultiplication() {
+        Assume.assumeTrue(type == MULTIPLY);
+        assertEquals((int) expected, baseCalc.multiply(first, second));
+    }
+
+    @Test
+    public void testDivision() {
+        Assume.assumeTrue(type == DIVIDE);
+        assertEquals(expected, baseCalc.divide(first, second), 0.00000001);
     }
 }
